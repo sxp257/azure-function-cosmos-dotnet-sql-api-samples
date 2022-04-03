@@ -69,8 +69,6 @@ namespace Sherwin.CosmosDBOrder.Shared
         {
             cosmosDatabase = client.GetDatabase(CosmosDatabaseId);
             Container headerContainer = await Program.GetContainerSync(cosmosDatabase, headerContainerId);
-
-            //string orderId = "OE0211101A794337";
             return await Program.QueryOrderHdrWithSqlParameters(headerContainer, orderId);
 
         }

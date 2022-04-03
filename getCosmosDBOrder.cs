@@ -31,11 +31,12 @@ namespace Sherwin.CosmosDBOrder
                 ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
                 : $"Hello, {order_id}. This HTTP triggered function executed successfully.";
             Order order = await Program.getOrder(order_id);
-            var opt = new System.Text.Json.JsonSerializerOptions() { WriteIndented = true };
-            string orderResponse = System.Text.Json.JsonSerializer.Serialize<Order>(order, opt);
+            //var opt = new System.Text.Json.JsonSerializerOptions() { WriteIndented = true };
+            //string orderResponse = System.Text.Json.JsonSerializer.Serialize<Order>(order, opt);
             
-            if (orderResponse != null){
-                return new OkObjectResult(orderResponse);
+            if (order != null){
+                req.HttpContext.Response.Headers.Add("Content-Type", "application/json");
+                return new OkObjectResult(order);
             }
                 
             return new BadRequestObjectResult(responseMessage);

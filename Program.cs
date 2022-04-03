@@ -23,7 +23,7 @@ namespace Sherwin.CosmosDBOrder.Shared
         {
             try
             {
-
+               
                 IConfigurationRoot configuration = new ConfigurationBuilder()
                     .AddJsonFile("C:\\Training\\AzureCosmosDBDotNetV3\\appSettings.json")
                     .Build();
@@ -137,9 +137,9 @@ namespace Sherwin.CosmosDBOrder.Shared
 
             }
             
-                var opt = new JsonSerializerOptions() { WriteIndented = true };
-                string strJson = JsonSerializer.Serialize<Order>(order, opt);
-                Console.WriteLine(strJson);
+                //var opt = new JsonSerializerOptions() { WriteIndented = true };
+                //string strJson = JsonSerializer.Serialize<Order>(order, opt);
+                //Console.WriteLine(strJson);
                 return order;
         }
 
